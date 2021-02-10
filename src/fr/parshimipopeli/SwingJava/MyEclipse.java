@@ -3,6 +3,7 @@ package fr.parshimipopeli.SwingJava;
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class MyEclipse extends JFrame {
 
@@ -14,9 +15,6 @@ public class MyEclipse extends JFrame {
 
         JPanel contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(new BorderLayout());
-
-
-        //idem
 
        contentPane.add(createToolbar(), BorderLayout.NORTH);
 
@@ -34,6 +32,7 @@ public class MyEclipse extends JFrame {
 
 
     }
+
 
     private JToolBar createToolbar() {
         JToolBar toolBar = new JToolBar();
@@ -71,6 +70,7 @@ public class MyEclipse extends JFrame {
 
     }
 
+
     private JPanel createRightPanel() {
         JPanel panel = new JPanel(new GridLayout(4, 1));
         panel.add(new JButton("Button 1"));
@@ -81,6 +81,8 @@ public class MyEclipse extends JFrame {
         return panel;
 
     }
+
+
 
     public static void main(String[] args) throws Exception {
         // Apply a look'n feel

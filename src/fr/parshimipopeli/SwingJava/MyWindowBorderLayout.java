@@ -34,6 +34,7 @@ public class MyWindowBorderLayout extends JFrame {
 
     }
 
+
     public static void main(String[] args) throws Exception {
         // Apply a look'n feel
         UIManager.setLookAndFeel(new NimbusLookAndFeel());
