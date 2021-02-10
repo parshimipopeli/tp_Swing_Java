@@ -3,9 +3,7 @@ package fr.parshimipopeli.SwingJava.ImplementListener;
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class MyWindowListener4 extends JFrame  {
 
@@ -15,7 +13,7 @@ public class MyWindowListener4 extends JFrame  {
 
     public MyWindowListener4() {
         super("My first Swing application !");
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setSize(1000, 600);
         this.setLocationRelativeTo(null);
 
@@ -28,21 +26,7 @@ public class MyWindowListener4 extends JFrame  {
 
         btnClickMe.addActionListener(this::setBtnClickMeListener);
         contentPane.add(btnClickMe);
-        btnClickMe.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
+        btnClickMe.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -64,6 +48,18 @@ public class MyWindowListener4 extends JFrame  {
         JTextField txtEditMe = new JTextField(("edit me !"));
         txtEditMe.setPreferredSize(new Dimension(120, 50));//redimentionnement d'un élement
         contentPane.add(txtEditMe);
+
+        //methode pour afficher une popup qui demande confirmation de fermeture
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+              int clickedButton = JOptionPane.showConfirmDialog(MyWindowListener4.this,
+                      "êtes vous sur de vouloir quitter ?", "fermeture de la fenetre", JOptionPane.YES_NO_OPTION);
+              if (clickedButton == JOptionPane.YES_OPTION) {
+                  MyWindowListener4.this.dispose();
+              }
+            }
+        });
     }
 
         private void changerCouleur(ActionEvent event) {
