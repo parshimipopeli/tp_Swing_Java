@@ -22,38 +22,64 @@ public class MenuBarSample extends JFrame {
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu menuFile = new JMenu("file");
-        menuFile.setMnemonic('F');//pour ajouter un racourcis avec premiere lettre du menu souligné à ouvrir avec touche alt + premiere lettre du menu
+        JMenu ListMenu = new JMenu("Menus");
+        ListMenu.setMnemonic('M');//pour ajouter un racourcis avec premiere lettre du menu souligné à ouvrir avec touche alt + premiere lettre du menu
 
-        JMenuItem menuNew = new JMenuItem("newFile");
-        menuNew.addActionListener(this::menuNewLister);
-        menuFile.add(menuNew);
-        menuFile.addSeparator();
+        JMenu WinterMenu = new JMenu("Winter Menu");
+        WinterMenu.setMnemonic('W');
+//        WinterMenu.addActionListener(this::menuNewLister);
+        WinterMenu.setIcon(new ImageIcon("icons/img.png"));//ajouter une icone au JMenuItem
+        ListMenu.add(WinterMenu);
+        ListMenu.addSeparator();
 
-        JMenu menuMenu = new JMenu("menu");
-        menuFile.add(menuMenu);
-        JMenuItem menu1 = new JMenuItem("menu-A");
-        menu1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));//mettre un  accélerateur, racourci clavier pour ouvrir le JMenuItem
+        JMenuItem menuWA = new JMenuItem("Menu-1");
+        menuWA.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));//mettre un  accélerateur, racourci clavier pour ouvrir le JMenuItem
+        WinterMenu.add(menuWA);
+        JMenuItem menuWB = new JMenuItem("Menu-2");
+        menuWB.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, KeyEvent.CTRL_DOWN_MASK));
+        WinterMenu.add(menuWB);
+        JMenuItem menuC = new JMenuItem("Menu-3");
+        menuC.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
+        WinterMenu.add(menuC);
+        JMenuItem menuWD = new JMenuItem("Menu-4");
+        menuWD.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK));
+        WinterMenu.add(menuWD);
 
-        menuMenu.add(menu1);
-        JMenuItem menu2 = new JMenuItem("menu-B");
-        menu2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, KeyEvent.CTRL_DOWN_MASK));//mettre un  accélerateur, racourci clavier pour ouvrir le JMenuItem
+        JMenu SpringMenu = new JMenu("SpringMenu");
+        SpringMenu.setMnemonic('S');
+        ListMenu.add(SpringMenu);
+        JMenuItem menuSA = new JMenuItem("menu-A");
+        menuSA.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
+        SpringMenu.add(menuSA);
+        JMenuItem menuSB = new JMenuItem("menu-B");
+        menuSB.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, KeyEvent.CTRL_DOWN_MASK));
+        SpringMenu.add(menuSB);
+        JMenuItem mesuSC = new JMenuItem("Menu-C");
+        menuC.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK ));
+        SpringMenu.add(menuC);
 
-        menuMenu.add(menu2);
-
-        JMenu menuTest = new JMenu(("test"));
-        menuTest.setMnemonic('T');
 
 
-        menuBar.add(menuFile);
-        menuBar.add(menuTest);
+        JMenu Coktails = new JMenu(("Coktails"));
+        Coktails.setMnemonic('C');
+        JMenu Rhum = new JMenu("Rhum");
+        Rhum.setMnemonic('R');
+        Coktails.add(Rhum);
+
+        JMenuItem Mojito = new JMenuItem("Mojito");
+        Mojito.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, KeyEvent.CTRL_DOWN_MASK));
+        Rhum.add(Mojito);
+
+
+        menuBar.add(ListMenu);
+        menuBar.add(Coktails);
         return menuBar;
     }
 
     //methode permettant de faire ouvrir une boite de dialogue
-    private void menuNewLister(ActionEvent event) {
-        JOptionPane.showMessageDialog(this, "new document required");
-    }
+//    private void menuNewLister(ActionEvent event) {
+//        JOptionPane.showMessageDialog(this, "new document required");
+//    }
 
     public static void main(String[] args) throws Exception {
         UIManager.setLookAndFeel(new NimbusLookAndFeel());
