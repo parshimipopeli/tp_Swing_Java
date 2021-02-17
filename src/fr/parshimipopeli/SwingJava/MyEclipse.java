@@ -4,10 +4,11 @@ import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class MyEclipse extends JFrame {
 
-    public MyEclipse() {
+    public MyEclipse() throws IOException {
         super("My first Swing application !");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(600, 400);
@@ -26,9 +27,10 @@ public class MyEclipse extends JFrame {
 
        contentPane.add(createRightPanel(), BorderLayout.EAST);
 
-       JTextField txtContent = new JTextField(("The content of this editor"));
-       JScrollPane scrContent = new JScrollPane(txtContent);
-       contentPane.add(scrContent);
+//       JTextField txtContent = new JTextField(("The content of this editor"));
+//       JScrollPane scrContent = new JScrollPane(txtContent);
+//       contentPane.add(scrContent);
+
 
 
     }
